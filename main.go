@@ -9,6 +9,7 @@ import (
 func main() {
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/", controllers.Index)
+	router.HandleFunc("/todos", controllers.TodoIndex)
 
 	n := negroni.Classic()
 	n.UseHandler(router)
